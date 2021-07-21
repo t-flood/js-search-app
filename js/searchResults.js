@@ -28,3 +28,36 @@ const createResultItem = (result) => {
   resultItem.append(resultTitle);
   return resultItem;
 };
+
+const createResultImage = (result) => {
+  const resultImage = document.createElement("div");
+  resultImage.classList.add("resultImage");
+  const img = document.createElement("img");
+  img.src = result.img;
+  img.alt = result.title;
+  resultImage.append(img);
+  return resultImage;
+};
+
+const createResultText = (result) => {
+  const resultText = document.createElement("div");
+  resultText.classList.add("resultText");
+  const resultDescription = document.createElement("p");
+  resultDescription.classList.add("resultDescription");
+  resultDescription.textContent = result.text;
+  resultText.append(resultDescription);
+  return resultText;
+};
+
+export const clearStatsLine = () => {
+  document.getElementById("stats").textContent = "";
+};
+
+export const setStatsLine = (numberOfResults) => {
+  const statLine = document.getElementById("stats");
+  if (numberOfResults) {
+    setStatLine.textContent = `Displaying ${numberofResults} results.`;
+  } else {
+    statLine.textContent = "Sorry, no results.";
+  }
+};
